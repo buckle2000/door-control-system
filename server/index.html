@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开门</title>
+</head>
+
+<body>
+    <h1>测试页面</h1>
+    <div id="app">
+        <h2>操作</h2>
+        <div>
+            <button m-on:click="get_users">查看现有用户</button>
+            <button m-on:click="create_user">创建用户</button>
+        </div>
+        <div>
+            <label for="user_id">用户ID</label>
+            <input type="text" m-model="user_id" id="user_id">
+            <button m-on:click="query_user">查询</button>
+            <button m-on:click="magic">魔法</button>
+            <button m-on:click="delete_user">删除</button>
+        </div>
+        <h2>结果</h2>
+        <p>{{result}}</p>
+    </div>
+    <script src="http://zeptojs.com/zepto.min.js"></script>
+    <script src="https://unpkg.com/moonjs"></script>
+    <script>
+const app1 = new Moon({
+    el: "#app",
+    data: {
+        user_id: "",
+        result: ""
+    },
+    methods: {
+        get_users() {
+            $.get('/users', (response) => this.set('result', response))
+        },
+        create_user() {
+            $.post('/users', (response) => this.set('result', response))
+        },
+        query_user() {
+            const id = this.get('user_id')
+            $.get(`/users/${id}`, (response) => this.set('result', response))
+        },
+        magic() {
+            const id = this.get('user_id')
+            $.post(`/users/${id}`, (response) => this.set('result', response))
+        },
+        delete_user() {
+            const id = this.get('user_id')
+            $.ajax({type:'delete', url:`/users/${id}`}, (response) => this.set('result', response))
+        }
+    }
+});
+    </script>
+</body>
+
+</html>

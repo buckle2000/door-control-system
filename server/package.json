@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mqtt": "^2.15.0",
+    "request": "^2.83.0"
+  }
 }
