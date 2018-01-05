@@ -1,0 +1,7 @@
+WLAN_ESSID    = "WLAN name"
+WLAN_PASSWORD = "WLAN password"
+MQTT_ID       = "somewhat-client" # MQTT client id
+MQTT_SERVER   = "localhost" # MQTT server
+MQTT_USERNAME = "your username"
+MQTT_PASSWORD = "your password"
+MQTT_TOPIC    = "whatever topic"

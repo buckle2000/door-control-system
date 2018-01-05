@@ -1,1 +1,0 @@
-this.createdAt = new Date();
