@@ -1,0 +1,16 @@
+## 工作原理
+
+|             | 本项目的实现 |
+| ----        |     ----     |
+| MQTT broker | io.adafruit.com |
+| MQTT client | Wemos D1 mini |
+| 后端        | Nodejs + Express |
+| 前端+用户界面 | HTML5 + ECMA6 |
+| 数据库      | nedb |
+
+0. 所有MQTT client连接MQTT broker
+1. 用户请求操作；前端通知后端
+2. 后端请求数据库验证权限，反馈前端
+3. 后端作为MQTT client连接MQTT broker，发送消息
+5. MQTT broker broadcast
+6. MQTT完成操作
